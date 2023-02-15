@@ -182,7 +182,26 @@ console.log(all);
 
 
 
-// asd();
-// function asd() {
-//     console.log('ashfdhgsafdh');
+
+                                        // Функція - рекурсія
+
+// function foo () {                //схематичний приклад
+//     console.log('foo');
+//     foo();
 // }
+// foo();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
