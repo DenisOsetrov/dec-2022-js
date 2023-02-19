@@ -185,21 +185,44 @@ console.log(all);
 
                                         // Функція - рекурсія
 
+
 // function foo () {                //схематичний приклад
 //     console.log('foo');
 //     foo();
 // }
 // foo();
 
+// function pow(x, n) {             //функцію pow(x, n) приводить x в натуральну степінь n. Іншими словами, множить x сам на себе n разів.
+//     if (n == 1) {                //...Іншими словами, множить x сам на себе n разів.
+//         return x;
+//     } else {
+//         return x * pow(x, n - 1);
+//     }
+// }
+// console.log( pow(2, 4) );        // - 16
 
 
+                            //Як ітерувати масив, не використовуючи цикл -> рекурсія функції!!! ПРИКЛАД
+function iterator (arr,i){
+console.log(arr[i]);
+    i++;
+if (i<arr.length){
+iterator(arr,i)
+                 }
+}
+iterator([11,22,33,44,55],0);
 
-
-
-
-
-
-
+                                    // Callback функція!
+let numbers = [11,12,13,14,15,16,17,18,19,20];
+// function foreachCustom (arr,callback) {
+//     for (const item of arr) {
+//         callback(item);
+//     }
+// }
+// foreachCustom(numbers6,(news) => console.log(news))
+                            // --АБО--через функцію .foreach - перебираємо кожен елемент масиву і
+                            //   виводимо. Після => можна задати умову!
+numbers.forEach((q) => console.log(q));
 
 
 
