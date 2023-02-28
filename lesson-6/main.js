@@ -1,6 +1,15 @@
 // - Знайти та вивести довижину настипних стрінгових значень
 // 'hello world', 'lorem ipsum', 'javascript is cool'
-let long1 = 'hello world';
+
+let long = ['hello world','lorem ipsum','javascript is cool'];    // через цикл!
+for (let i=0; i<long.length; i++) {
+    const longElement = long[i];
+    console.log(longElement.length)
+}
+
+long.map((item) => console.log(item.length));             //  через метод map!
+
+let long1 = 'hello world';                                      //  через методи стрінги
 console.log(long1.length);
 let long2 = 'lorem ipsum';
 console.log(long2.length);
@@ -8,13 +17,12 @@ let long3 = 'javascript is cool';
 console.log(long3.length);
 
 let longAll = ['hello world', 'lorem ipsum', 'javascript is cool'];     //All strings together to length!
-longAll.forEach((value) => console.log(value.length));
+longAll.forEach((value) => console.log(value.length));            // через метод масиву forEach!
 
 
 // let long4 = 'hello world';               //Повний запис!
 // let a = long4.length;
 // console.log(a);
-
 
 // - Перевести до великого регістру наступні стрінгові значення
 // 'hello world', 'lorem ipsum', 'javascript is cool'
@@ -148,7 +156,7 @@ let coursesAndDurationArray = [
     {title: 'Frontend', monthDuration: 4}
 ];
 let sortArray = coursesAndDurationArray.sort ((a,b) => {
-    return b.monthDuration - a.monthDuration
+    return b.monthDuration - a.monthDuration;
 })
 console.log(sortArray);                             // -- відсортувати його за спаданням за monthDuration
 
