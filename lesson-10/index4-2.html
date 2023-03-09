@@ -1,0 +1,603 @@
+<!--          зробити масив на 100 об'єктів та дві кнопки prev next-->
+<!--          при завантажені сторінки з'являються перші 10 об'єктів.-->
+<!--          При натисканні next виводяться настпні 10 об'єктів-->
+<!-- При натисканні prev виводяться попередні 10 об'єктів-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+    .wrapper {
+      width: 300px;
+      padding: 10px;
+        background: rgba(247, 120, 186, 0.93);
+        margin-top: 10px;
+        border: #ffef20 3px solid;
+    }
+  </style>
+</head>
+<body>
+
+ <button id="prev"
+        disabled>prev
+</button>
+<button id="next">next</button>
+
+<div id="wrapper"></div>
+<script>
+
+                            //      Функція побудови рандомного масиву на 100 об'єктів!
+//     const names = ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', 'Frank', 'Grace', 'Henry', 'Isabel', 'Jack'];
+//     const cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose'];
+//
+//     const users = Array.from({ length: 100 }, () => {
+//         const name = names[Math.floor(Math.random() * names.length)];
+//         const age = Math.floor(Math.random() * 80) + 18;
+//         const city = cities[Math.floor(Math.random() * cities.length)];
+//         return { name, age, city };
+//     });
+//
+// console.log(users);
+
+
+
+   const users = [
+        {
+            "name": "Grace",
+            "age": 72,
+            "city": "New York"
+        },
+        {
+            "name": "Eve",
+            "age": 78,
+            "city": "San Jose"
+        },
+        {
+            "name": "Bob",
+            "age": 80,
+            "city": "San Diego"
+        },
+        {
+            "name": "Jack",
+            "age": 60,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Alice",
+            "age": 33,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Bob",
+            "age": 65,
+            "city": "Dallas"
+        },
+        {
+            "name": "Eve",
+            "age": 75,
+            "city": "New York"
+        },
+        {
+            "name": "Isabel",
+            "age": 82,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Grace",
+            "age": 64,
+            "city": "Houston"
+        },
+        {
+            "name": "Charlie",
+            "age": 69,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Alice",
+            "age": 75,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Alice",
+            "age": 50,
+            "city": "San Diego"
+        },
+        {
+            "name": "Jack",
+            "age": 94,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Grace",
+            "age": 28,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Grace",
+            "age": 90,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Charlie",
+            "age": 80,
+            "city": "Dallas"
+        },
+        {
+            "name": "Bob",
+            "age": 52,
+            "city": "Chicago"
+        },
+        {
+            "name": "Grace",
+            "age": 96,
+            "city": "San Diego"
+        },
+        {
+            "name": "Bob",
+            "age": 49,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Frank",
+            "age": 63,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Charlie",
+            "age": 59,
+            "city": "Chicago"
+        },
+        {
+            "name": "Jack",
+            "age": 21,
+            "city": "San Diego"
+        },
+        {
+            "name": "Eve",
+            "age": 21,
+            "city": "San Jose"
+        },
+        {
+            "name": "Isabel",
+            "age": 93,
+            "city": "New York"
+        },
+        {
+            "name": "Bob",
+            "age": 64,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Jack",
+            "age": 51,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Alice",
+            "age": 87,
+            "city": "San Jose"
+        },
+        {
+            "name": "Henry",
+            "age": 87,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Dave",
+            "age": 26,
+            "city": "Dallas"
+        },
+        {
+            "name": "Frank",
+            "age": 44,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Eve",
+            "age": 86,
+            "city": "Chicago"
+        },
+        {
+            "name": "Bob",
+            "age": 30,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Bob",
+            "age": 92,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Frank",
+            "age": 44,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Alice",
+            "age": 93,
+            "city": "Chicago"
+        },
+        {
+            "name": "Frank",
+            "age": 24,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Alice",
+            "age": 33,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Grace",
+            "age": 85,
+            "city": "New York"
+        },
+        {
+            "name": "Henry",
+            "age": 22,
+            "city": "New York"
+        },
+        {
+            "name": "Frank",
+            "age": 96,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Henry",
+            "age": 32,
+            "city": "Chicago"
+        },
+        {
+            "name": "Dave",
+            "age": 45,
+            "city": "San Diego"
+        },
+        {
+            "name": "Isabel",
+            "age": 52,
+            "city": "New York"
+        },
+        {
+            "name": "Henry",
+            "age": 50,
+            "city": "New York"
+        },
+        {
+            "name": "Eve",
+            "age": 77,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Grace",
+            "age": 91,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Henry",
+            "age": 56,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Jack",
+            "age": 82,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Bob",
+            "age": 48,
+            "city": "New York"
+        },
+        {
+            "name": "Charlie",
+            "age": 30,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Henry",
+            "age": 76,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Isabel",
+            "age": 92,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Henry",
+            "age": 34,
+            "city": "New York"
+        },
+        {
+            "name": "Isabel",
+            "age": 18,
+            "city": "San Jose"
+        },
+        {
+            "name": "Grace",
+            "age": 45,
+            "city": "New York"
+        },
+        {
+            "name": "Jack",
+            "age": 90,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Jack",
+            "age": 28,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Charlie",
+            "age": 85,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Henry",
+            "age": 72,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Henry",
+            "age": 77,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Eve",
+            "age": 94,
+            "city": "Houston"
+        },
+        {
+            "name": "Charlie",
+            "age": 69,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Frank",
+            "age": 83,
+            "city": "Dallas"
+        },
+        {
+            "name": "Isabel",
+            "age": 55,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Dave",
+            "age": 87,
+            "city": "San Diego"
+        },
+        {
+            "name": "Eve",
+            "age": 70,
+            "city": "San Jose"
+        },
+        {
+            "name": "Grace",
+            "age": 64,
+            "city": "New York"
+        },
+        {
+            "name": "Eve",
+            "age": 39,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Alice",
+            "age": 83,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Alice",
+            "age": 93,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Henry",
+            "age": 70,
+            "city": "New York"
+        },
+        {
+            "name": "Frank",
+            "age": 66,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Alice",
+            "age": 28,
+            "city": "San Jose"
+        },
+        {
+            "name": "Henry",
+            "age": 34,
+            "city": "Houston"
+        },
+        {
+            "name": "Bob",
+            "age": 77,
+            "city": "Chicago"
+        },
+        {
+            "name": "Henry",
+            "age": 42,
+            "city": "San Jose"
+        },
+        {
+            "name": "Bob",
+            "age": 40,
+            "city": "San Antonio"
+        },
+        {
+            "name": "Henry",
+            "age": 30,
+            "city": "Chicago"
+        },
+        {
+            "name": "Frank",
+            "age": 96,
+            "city": "Los Angeles"
+        },
+        {
+            "name": "Alice",
+            "age": 96,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Alice",
+            "age": 91,
+            "city": "Dallas"
+        },
+        {
+            "name": "Jack",
+            "age": 26,
+            "city": "New York"
+        },
+        {
+            "name": "Dave",
+            "age": 59,
+            "city": "San Diego"
+        },
+        {
+            "name": "Henry",
+            "age": 68,
+            "city": "Dallas"
+        },
+        {
+            "name": "Eve",
+            "age": 79,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Isabel",
+            "age": 97,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Isabel",
+            "age": 66,
+            "city": "San Diego"
+        },
+        {
+            "name": "Dave",
+            "age": 92,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Eve",
+            "age": 22,
+            "city": "Chicago"
+        },
+        {
+            "name": "Frank",
+            "age": 65,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Jack",
+            "age": 92,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Dave",
+            "age": 38,
+            "city": "New York"
+        },
+        {
+            "name": "Bob",
+            "age": 19,
+            "city": "New York"
+        },
+        {
+            "name": "Charlie",
+            "age": 63,
+            "city": "New York"
+        },
+        {
+            "name": "Henry",
+            "age": 46,
+            "city": "Philadelphia"
+        },
+        {
+            "name": "Henry",
+            "age": 88,
+            "city": "San Diego"
+        },
+        {
+            "name": "Henry",
+            "age": 49,
+            "city": "San Jose"
+        },
+        {
+            "name": "Alice",
+            "age": 55,
+            "city": "Phoenix"
+        },
+        {
+            "name": "Isabel",
+            "age": 18,
+            "city": "Chicago"
+        },
+        {
+            "name": "Bob",
+            "age": 46,
+            "city": "New York"
+        }
+    ]
+
+
+
+  let page = 1;
+
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+
+  prev.addEventListener('click', () => handler(page -= 1));
+  next.addEventListener('click', () => handler(page += 1));
+  handler(page);
+
+  function handler(page, limit = 10) {
+    const wrapper = document.getElementById('wrapper');
+
+    const newArr = [];
+    const startIndex = (page - 1) * limit;
+    let endIndex = page * limit;
+
+    if (endIndex < users.length) {
+      next.removeAttribute('disabled');
+    } else {
+      next.setAttribute('disabled', 'disabled');
+      endIndex = users.length;
+    }
+    if (startIndex > 0) {
+      prev.removeAttribute('disabled');
+    } else {
+      prev.setAttribute('disabled', 'disabled');
+    }
+
+    for (let i = startIndex; i < endIndex; i++) {
+      const user = users[i];
+      const item = document.createElement('div');
+      const name = document.createElement('div');
+      const age = document.createElement('div');
+      const city = document.createElement('div');
+
+      item.classList.add('wrapper');
+
+      name.innerText = `Name: ${user.name}`;
+      age.innerText = `Age: ${user.age}`;
+      city.innerText = `City: ${user.city}`;
+
+      item.append(name, age, city);
+      newArr.push(item);
+    }
+    wrapper.replaceChildren(...newArr);
+  }
+</script>
+</body>
+</html>
+

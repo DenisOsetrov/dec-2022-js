@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .button {
+      width: 248px;
+      height: 30px;
+      color: brown;
+      background: #ffe5a4;
+      border: #5f33e1 3px groove;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .input {
+      width: 240px;
+      height: 50px;
+      color: brown;
+      background: #ffe5a4;
+      border: #5f33e1 3px groove;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+    .label {
+      font-size: 20px;
+      display: flex;
+    }
+    .main {
+      padding: 10px;
+      width: 250px;
+      background: lightskyblue;
+      border: #5f33e1 3px solid;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="main">            <!--Обгорнути в тег - Ctrl+Alt+T і вибираємо тег <></>-->
+  <form name="userForm">        <!--<form action="someURL! - адреса серверу/сайту" - сюди підправляються всі інпути  -->
+    <!--<form enctype="multipart/form-data" - дозволяє формі збирати і стрінгу і байти/файли>-->
+    <!--<form method ="get" i "post"> - get показує параметри URL, post - no!-->
+    <label for="name" class="label">Name</label>
+    <input class="input" type="text" id="name" placeholder="enter your name">
+    <label for="surname" class="label">Surname</label>
+    <input class="input" type="text" id="surname" placeholder="enter your surname">
+    <label for="age" class="label">Age</label>
+    <input class="input" type="number" id="age" placeholder="enter age" min="0" max="99">
+    <br>
+    <br>
+    <button class="button">Click here</button>      <!--button за межами form, щоб не залишати сторінку! -->
+  </form> <br>
+</div>
+
+<script>
+  const form = document.forms.userForm;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if(!this.name.value || this.name.value.length < 2) {
+      return alert('Enter correctly name');
+    }
+    if(!this.surname.value || this.surname.value.length < 2) {
+      return alert('Enter correctly surname');
+    }
+    if(!this.age.value || this.age.value < 18) {
+      return alert('You have to wait');
+    }
+
+    const wrapper = document.createElement('div');
+    const name = document.createElement('div');
+    const surname = document.createElement('div');
+    const age = document.createElement('div');
+
+    name.innerText = `Name: ${this.name.value}`;
+    surname.innerText = `Surname: ${this.surname.value}`;
+    age.innerText = `Age: ${this.age.value}`;
+
+    wrapper.append(name, surname, age);
+    document.body.appendChild(wrapper);
+  });
+</script>
+
+
+
+
+
+
+
+
+<!--<input type="password" name="password" placeholder="enter password">-->
+<!--<br>-->
+<!--<input type="number" name="age" placeholder="enter age">-->
+<!--<br>-->
+<!--<input type="email" name="email" placeholder="enter your email">-->
+<!--<br>-->
+<!--<input type="date" name="date">-->
+<!--<br>-->
+<!--<label>Status<input type="checkbox" name="status"></label>-->
+<!--<br>-->
+<!--<div>-->
+<!--Male<label><input type="radio" name="gender" value="male"></label>-->
+<!--Female<label><input type="radio" name="gender" value="female"></label>-->
+<!--<br>-->
+<!--</div>-->
+<!--<input type="submit">   &lt;!&ndash;кнопка - Надіслати&ndash;&gt;-->
+<!--<br>-->
+<!--<form>-->
+<!--<select name="skills">      &lt;!&ndash;- можна додати параметр multiple в селект і вибрати декілька варіантів.&ndash;&gt;-->
+<!--    <option value="JS">Java Script</option>-->
+<!--    <option value="Java">Java 8</option>-->
+<!--    <option value="html">Html</option>-->
+<!--</select>-->
+<!--<input type="submit">-->
+<!--&lt;!&ndash;    або&ndash;&gt;-->
+<!--    <button>Відправляй!</button>-->
+<!--</form>-->
+<!--<script src="main.js"></script>-->
+</body>
+</html>

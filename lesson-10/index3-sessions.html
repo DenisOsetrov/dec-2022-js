@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 350px;
+            padding: 10px;
+        }
+        .item {
+            margin-top: 15px;
+            background: #e3cefd;
+            border: #e1941c 3px solid;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // Для цього можна використати localStorage для зберігання масиву sessions з даними про кожну сесію, -->
+    // а потім при відвідуванні сторінки sessions.html зчитувати ці дані з localStorage, -->
+    // парсити їх з формату JSON та відображати на сторінці за допомогою DOM-маніпуляцій.-->
+    // Для відображення кожної сесії можна створити div-елемент з класом "wrapper" та "item", -->
+    // який буде містити div-елементи з інформацією про дату, час та пристрій. -->
+    // Інформацію про дату та час можна отримати, використовуючи функцію format(), -->
+    // яка приймає рядок з датою в форматі ISO та повертає об'єкт з розбитою на складові датою та часом. -->
+    // З отриманими даними можна відображати інформацію на сторінці.-->
+
+    // Отримуємо інформацію про сесії з локального сховища браузера
+    const json = localStorage.getItem('sessions');
+    const sessions = json ? JSON.parse(json) : [];
+
+    // Для відображення кожної сесії можна створити div-елемент з класом "wrapper" та "item",
+    // який буде містити div-елементи з інформацією про дату, час та пристрій.
+    for (const session of sessions) {
+        const wrapper = document.createElement('div');
+        const date = document.createElement('div');
+        const time = document.createElement('div');
+        const device = document.createElement('div');
+
+    // Присвоюємо блоку wrapper класи з CSS.
+        wrapper.classList.add('wrapper', 'item');
+
+
+        const dateObj = format(session.Date);
+
+        date.innerText = `Date: ${dateObj.DD}/${dateObj.MM}/${dateObj.YYYY}`;
+        time.innerText = `Time: ${dateObj.hh}:${dateObj.mm}:${dateObj.ss}`;
+        device.innerText = `Device: ${session.UserBrowser} / ${session.UserAgent}`
+
+        wrapper.append(date, time, device);
+        document.body.appendChild(wrapper);
+    }
+
+    // функція для форматування дати та часу
+    function format(dateString) {
+        const qwe = new Date(dateString);
+
+        const YYYY = qwe.getFullYear().toString();
+        const MM = (qwe.getMonth() + 1).toString();
+        const DD = qwe.getDate().toString();
+        const hh = qwe.getHours().toString();
+        const mm = qwe.getMinutes().toString();
+        const ss = qwe.getSeconds().toString();
+
+    //
+        return {
+            YYYY: YYYY,
+            MM: MM.length < 2 ? `0${MM}` : MM,
+            DD: DD.length < 2 ? `0${DD}` : DD,
+            hh: hh.length < 2 ? `0${hh}` : hh,
+            mm: mm.length < 2 ? `0${mm}` : mm,
+            ss: ss.length < 2 ? `0${ss}` : ss,
+        }
+    }
+</script>
+</body>
+</html>

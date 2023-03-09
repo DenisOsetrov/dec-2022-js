@@ -1,7 +1,7 @@
 // - створити блок,
 const firstDiv = document.createElement('div');
-//     - додати йому класи wrap, collapse, alpha, beta
-firstDiv.classList.add(['wrap', 'collapse', 'alpha', 'beta']);
+// - додати йому класи wrap, collapse, alpha, beta
+firstDiv.classList.add('wrap', 'collapse', 'alpha', 'beta');
 // - додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
 firstDiv.style.background = 'green';
 firstDiv.style.fontSize = '30px';

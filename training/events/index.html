@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #target {
+            width: 200px;
+            height: 200px;
+            background: silver;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--01. Forms API-->
+
+<!--<form action="" name="f1">-->
+<!--    <input type="text" placeholder="username" name="userName">-->
+<!--    <button>send username</button>-->
+
+<!--</form>-->
+
+<!--<form action="" name="f2">-->
+<!--    <input type="email" placeholder="email" name="userEmail">-->
+<!--    <button>send email</button>-->
+<!--</form>-->
+
+<!--<script>-->
+
+<!--    console.log(document.forms);-->
+<!--    console.log(document.forms['f1']);-->
+<!--    console.log(document.forms['f1']['userName']);-->
+
+<!--    console.log(document.forms.f2.userEmail);-->
+
+<!--</script>-->
+
+<!--02. events-->
+
+<!--<div id="target"></div>-->
+<!--&lt;!&ndash;<form id="f1">&ndash;&gt;-->
+<!--<input id="i1" name="username">-->
+<!--<button>send</button>-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+<!--<script>-->
+
+<!--    // let target = document.getElementById('target');-->
+<!--    // // target.onclick = function (ev) {-->
+<!--    // //     console.log('click');-->
+<!--    // //     console.log(ev);-->
+<!--    // // };-->
+<!--    // // // target.onmousemove = function (ev) {-->
+<!--    // // //     console.log(ev.clientX, ev.clientY);-->
+<!--    // // //     let r = ev.clientX;-->
+<!--    // // //     let g = ev.clientX;-->
+<!--    // // //     let b = ev.clientY;-->
+<!--    // // //     this.style.background = `rgb(${r},${g},${b})`;-->
+<!--    // // // };-->
+<!--    // //-->
+<!--    // //-->
+<!--    // // // target.onclick = function () {-->
+<!--    // // //     console.log('asdhfhagdfhg');-->
+<!--    // // // };-->
+<!--    // // //-->
+<!--    // // // console.log(target);-->
+<!--    // //-->
+<!--    // // // target.addEventListener('click', function (ev) {-->
+<!--    // // //     console.log('asjdfyqtweyqwt');-->
+<!--    // // // })-->
+<!--    // //-->
+<!--    // // target.onmouseover = function () {-->
+<!--    // //     console.log('over');-->
+<!--    // // };-->
+<!--    // //-->
+<!--    // // target.onmouseleave = function () {-->
+<!--    // //     console.log('leave');-->
+<!--    // // };-->
+<!--    //-->
+<!--    // // let i1 = document.getElementById('i1');-->
+<!--    // // i1.oninput = function () {-->
+<!--    // //     target.innerText = this.value;-->
+<!--    // // };-->
+<!--    //-->
+<!--    // let f1 = document.forms.f1;-->
+<!--    //-->
+<!--    // f1.onsubmit = function (ev) {-->
+<!--    //     ev.preventDefault();-->
+<!--    //     console.log('hello');-->
+<!--    //     let user = {name: this.username.value}-->
+<!--    //     console.log(user); // ls fetch api-->
+<!--    //-->
+<!--    // };-->
+<!--    //-->
+<!--    // let button = document.getElementsByTagName('button')[0];-->
+<!--    // button.onclick = function () {-->
+<!--    //     let value = f1.username.value;-->
+<!--    //     //....-->
+<!--    // };-->
+
+<!--    window.onload = function () {-->
+<!--        console.log('load');-->
+<!--    };-->
+
+<!--    document.onreadystatechange = function () {-->
+<!--        if (document.readyState === 'interactive') {-->
+<!--            document.body.innerText = 'loading start...'-->
+<!--        }-->
+<!--        if (document.readyState === 'complete') {-->
+<!--            document.body.innerText = 'loading complete'-->
+<!--        }-->
+
+<!--    };-->
+
+<!--</script>-->
+
+
+                                            <!--03. Localstorage-->
+<!--<script>-->
+
+<!--    // let item = localStorage.getItem('asd');-->
+<!--    // console.log(item);-->
+<!--    // localStorage.clear();-->
+
+<!--    // localStorage.setItem('user', JSON.stringify({id: 1, name: 'kokos'}));-->
+
+<!--    // let userJSON = localStorage.getItem('user');-->
+<!--    // console.log(userJSON);-->
+<!--    // let user = JSON.parse(userJSON);-->
+<!--    // console.log(user);-->
+<!--    // user.age = 31;-->
+<!--    // console.log(user);-->
+<!--    // localStorage.setItem('user', JSON.stringify(user))-->
+
+
+<!--    // let users = [-->
+<!--    //     {name: 'vasya', age: 31, status: false},-->
+<!--    //     {name: 'petya', age: 30, status: true},-->
+<!--    //     {name: 'kolya', age: 29, status: true},-->
+<!--    //     {name: 'olya', age: 28, status: false},-->
+<!--    //     {name: 'max', age: 30, status: true},-->
+<!--    //     {name: 'anya', age: 31, status: false},-->
+<!--    //     {name: 'oleg', age: 28, status: false},-->
+<!--    //     {name: 'andrey', age: 29, status: true},-->
+<!--    //     {name: 'masha', age: 30, status: true},-->
+<!--    //     {name: 'olya', age: 31, status: false},-->
+<!--    //     {name: 'max', age: 31, status: true}-->
+<!--    // ];-->
+<!--    //-->
+<!--    // localStorage.setItem('users', JSON.stringify(users));-->
+
+
+<!--    let usersJSON = localStorage.getItem('users');-->
+<!--    console.log(usersJSON);-->
+<!--    let users = JSON.parse(usersJSON);-->
+<!--    console.log(users);-->
+<!--    users.push({});-->
+<!--    console.log(users);-->
+
+<!--    localStorage.setItem('users', JSON.stringify(users));-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->

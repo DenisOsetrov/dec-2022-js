@@ -1,0 +1,43 @@
+<!--      є сторінка, на якій є блок, я кому знаходиьтся цифра.
+          написати код, який при кожному перезавантажені сторінки буде додавати до неї +1-->
+<!--==========================-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .main {
+      padding: 10px;
+      width: 200px;
+      background: lawngreen;
+      border: #5f33e1 3px solid;
+      border-radius: 10px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main">Calculation:
+  <u id="score"></u>
+</div>
+
+<script>
+
+  const scoreGet = localStorage.getItem('score') || 0;        // беремо з лок.сховища змінну за ключем
+  const newScore = (+scoreGet + 1).toString();                // збільшуємо змінну на 1.
+
+  const scoreId = document.getElementById('score');           // доступаємося до класу за id.
+  scoreId.innerText = newScore;                               // вставляємо в змінну нове значення
+
+  localStorage.setItem('score', newScore)                     // відправляємо в лок.сховище нові дані
+
+</script>
+</body>
+</html>

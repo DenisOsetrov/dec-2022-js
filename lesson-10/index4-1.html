@@ -1,0 +1,180 @@
+<!--зробити масив на 100 об'єктів та дві кнопки <prev> та  <next>.-->
+<!-- - При завантажені сторінки з'являються перші 10 об'єктів.-->
+<!-- - При натисканні next виводяться наступні 10 об'єктів.-->
+<!-- - При натисканні prev виводяться попередні 10 об'єктів.-->
+
+<!--Створити змінну, яка буде містити індекс першого об'єкта, що буде відображатися на сторінці.
+Створити функцію, яка буде відображати на сторінці 10 об'єктів починаючи з індексу, збереженого в змінній з попереднього кроку. Функція повинна також відповідати за очищення попередніх даних перед відображенням нових даних.
+Додати обробник подій на кнопку "next", який збільшує індекс початкового об'єкта на 10 та викликає функцію відображення об'єктів.
+Додати обробник подій на кнопку "prev", який зменшує індекс початкового об'єкта на 10 та викликає функцію відображення об'єктів.
+При відображенні списку об'єктів, який відображається на сторінці, зробити перевірку на те, чи збільшення або зменшення індексу не виходить за межі масиву об'єктів.-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- HTML елементи для кнопок prev та next -->
+<h1>People List</h1>
+<ul id="people-list"></ul>
+<button id="prev">Prev</button>
+<button id="next">Next</button>
+
+<script>
+    const peoples = [
+        {name: 'Vasya', age: 16, city: 'Kyiv'},
+        {name: 'Petro', age: 25, city: 'Lviv'},
+        {name: 'Ivan', age: 32, city: 'Kharkiv'},
+        {name: 'Olena', age: 28, city: 'Odessa'},
+        {name: 'Maryna', age: 18, city: 'Dnipro'},
+        {name: 'Yaroslav', age: 21, city: 'Zaporizhzhia'},
+        {name: 'Kateryna', age: 30, city: 'Kyiv'},
+        {name: 'Andriy', age: 43, city: 'Lviv'},
+        {name: 'Maksym', age: 20, city: 'Kharkiv'},
+        {name: 'Oksana', age: 27, city: 'Odessa'},
+        {name: 'Oleksiy', age: 19, city: 'Dnipro'},
+        {name: 'Yevhen', age: 24, city: 'Zaporizhzhia'},
+        {name: 'Svitlana', age: 35, city: 'Kyiv'},
+        {name: 'Roman', age: 41, city: 'Lviv'},
+        {name: 'Mykola', age: 22, city: 'Kharkiv'},
+        {name: 'Natalia', age: 26, city: 'Odessa'},
+        {name: 'Taras', age: 29, city: 'Dnipro'},
+        {name: 'Viktoriya', age: 23, city: 'Zaporizhzhia'},
+        {name: 'Ihor', age: 37, city: 'Kyiv'},
+        {name: 'Orest', age: 45, city: 'Lviv'},
+        {name: 'Anastasiya', age: 31, city: 'Kharkiv'},
+        {name: 'Yuliya', age: 29, city: 'Odessa'},
+        {name: 'Sergiy', age: 33, city: 'Dnipro'},
+        {name: 'Dmytro', age: 28, city: 'Zaporizhzhia'},
+        {name: 'Olga', age: 39, city: 'Kyiv'},
+        {name: 'Volodymyr', age: 40, city: 'Lviv'},
+        {name: 'Anna', age: 24, city: 'Kharkiv'},
+        {name: 'Vitaliy', age: 26, city: 'Odessa'},
+        {name: 'Mariya', age: 30, city: 'Dnipro'},
+        {name: 'Bohdan', age: 31, city: 'Zaporizhzhia'},
+        {name: 'Denys', age: 34, city: 'Kyiv'},
+        {name: 'Oleksandra', age: 29, city: 'Lviv'},
+        {name: 'Iryna', age: 27, city: 'Kharkiv'},
+        {name: 'Oleksandr', age: 23, city: 'Odessa'},
+        {name: 'Vasya', age: 16, city: 'Kyiv'},
+        {name: 'Petro', age: 25, city: 'Lviv'},
+        {name: 'Ivan', age: 32, city: 'Kharkiv'},
+        {name: 'Olena', age: 28, city: 'Odessa'},
+        {name: 'Maryna', age: 18, city: 'Dnipro'},
+        {name: 'Yaroslav', age: 21, city: 'Zaporizhzhia'},
+        {name: 'Kateryna', age: 30, city: 'Kyiv'},
+        {name: 'Andriy', age: 43, city: 'Lviv'},
+        {name: 'Maksym', age: 20, city: 'Kharkiv'},
+        {name: 'Oksana', age: 27, city: 'Odessa'},
+        {name: 'Oleksiy', age: 19, city: 'Dnipro'},
+        {name: 'Yevhen', age: 24, city: 'Zaporizhzhia'},
+        {name: 'Svitlana', age: 35, city: 'Kyiv'},
+        {name: 'Roman', age: 41, city: 'Lviv'},
+        {name: 'Mykola', age: 22, city: 'Kharkiv'},
+        {name: 'Natalia', age: 26, city: 'Odessa'},
+        {name: 'Taras', age: 29, city: 'Dnipro'},
+        {name: 'Viktoriya', age: 23, city: 'Zaporizhzhia'},
+        {name: 'Ihor', age: 37, city: 'Kyiv'},
+        {name: 'Orest', age: 45, city: 'Lviv'},
+        {name: 'Anastasiya', age: 31, city: 'Kharkiv'},
+        {name: 'Yuliya', age: 29, city: 'Odessa'},
+        {name: 'Sergiy', age: 33, city: 'Dnipro'},
+        {name: 'Dmytro', age: 28, city: 'Zaporizhzhia'},
+        {name: 'Olga', age: 39, city: 'Kyiv'},
+        {name: 'Volodymyr', age: 40, city: 'Lviv'},
+        {name: 'Anna', age: 24, city: 'Kharkiv'},
+        {name: 'Vitaliy', age: 26, city: 'Odessa'},
+        {name: 'Mariya', age: 30, city: 'Dnipro'},
+        {name: 'Bohdan', age: 31, city: 'Zaporizhzhia'},
+        {name: 'Denys', age: 34, city: 'Kyiv'},
+        {name: 'Oleksandra', age: 29, city: 'Lviv'},
+        {name: 'Iryna', age: 27, city: 'Kharkiv'},
+        {name: 'Oleksandr', age: 23, city: 'Odessa'}
+    ];
+
+    let currentPage = 0;
+    const peoplePerPage = 10;
+
+    function renderPeoples(currentPage, peoplePerPage) {
+        const startIndex = currentPage * peoplePerPage;
+        const endIndex = startIndex + peoplePerPage;
+        const peopleList = document.getElementById('people-list');
+        peopleList.innerHTML = '';
+        for (let i = startIndex; i < endIndex && i < peoples.length; i++) {
+            const person = peoples[i];
+            const listItem = document.createElement('li');
+            const personInfo = `${person.name}, ${person.age}, ${person.city}`;
+            listItem.textContent = personInfo;
+            peopleList.appendChild(listItem);
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            renderPeoples(currentPage, peoplePerPage);
+        }
+    }
+
+    function nextPage() {
+        if (currentPage < Math.ceil(peoples.length / peoplePerPage) - 1) {
+            currentPage++;
+            renderPeoples(currentPage, peoplePerPage);
+        }
+    }
+
+    renderPeoples(currentPage, peoplePerPage);
+
+    const prevButton = document.getElementById('prev');
+    prevButton.addEventListener('click', prevPage);
+
+    const nextButton = document.getElementById('next');
+    nextButton.addEventListener('click', nextPage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
