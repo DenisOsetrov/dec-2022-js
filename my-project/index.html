@@ -131,6 +131,7 @@
         .then(users => {
             const leftColumn = document.getElementById('left-column');
             const rightColumn = document.getElementById('right-column');
+            //У даному випадку, forEach() викликає функцію з двома параметрами: user та index. user - це поточний елемент масиву, який обробляється, а index - індекс цього елементу в масиві.
             users.forEach((user, index) => {
                 const userBlock = document.createElement('div');
                 userBlock.classList.add('user-block');

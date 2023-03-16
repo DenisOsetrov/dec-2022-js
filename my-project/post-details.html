@@ -24,26 +24,44 @@
             z-index: -1;
             color: white;
         }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
         li {
+            flex: 1 0 22%; /* 22% - це ваша початкова ширина, залишаємо її незмінною */
+            box-sizing: border-box;
+            text-align: center;
             border: 1px solid white;
             background-color: rgba(150, 148, 148, 0.7);
-            width: 94%;
-            margin: 15px 0 0 0;
-            text-align: center;
-            padding: 10px;
-            list-style: none;
+            margin: 10px;
         }
+
         h1 {
             text-align: center;
         }
         h2 {
             text-align: center;
         }
+        .p-post-details-container {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .p-post-details-container::before {
+            content: "♥ ";
+        }
         .post-details-container {
             border: 1px solid white;
             margin: auto 90px;
             text-align: center;
             padding: 10px;
+            border: 1px solid white;
+            background-color: rgba(150, 148, 148, 0.7);
         }
         button {
             background-color: rgba(166, 9, 9, 0.62);
@@ -79,16 +97,18 @@
 
     const container = document.getElementById('post-details-container');
 
-    const title = document.createElement('li');
+    const title = document.createElement('p');
     title.textContent = data.title;
+    title.classList.add('p-post-details-container');
 
-    const body = document.createElement('li');
+    const body = document.createElement('p');
     body.textContent = data.body;
+    body.classList.add('p-post-details-container')
 
     container.appendChild(title);
     container.appendChild(body);
 
-    container.classList.add('post-details-container')
+    container.classList.add('post-details-container');
 
     const backButton = document.getElementById('back-button');
 
