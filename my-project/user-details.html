@@ -27,12 +27,6 @@
             z-index: -1;
             color: white;
         }
-        #user-posts-list {
-            background-color: rgba(248, 242, 242, 0.8);
-            margin-right: 11px;
-            margin-left: 11px;
-            border: 2px white solid;
-        }
 
         #back-button {
             background-color: rgba(166, 9, 9, 0.62);
@@ -48,12 +42,26 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
             box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
-            }
+        }
+
         #back-button:hover {
             background-color: #a5a5a5;
         }
-        button {
-            margin: auto;
+
+        h1 {
+            text-align: center;
+        }
+
+        #user-details-container {
+            margin: 10px;
+            background-color: rgba(26, 25, 25, 0.62);
+            border: 2px white solid;
+            text-align: center;
+        }
+
+        #user-posts-button {
+            width: 90%;
+            margin: 40px auto;
             display: block;
             background-color: rgba(150, 148, 148, 0.7);
             border: none;
@@ -61,27 +69,39 @@
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
-        button:hover {
-            background-color: #212529;
+
+        #user-posts-button:hover {
+            background-color: rgba(25, 27, 30, 0.55);
         }
-        .li-a-style {
-            padding: 5px;
+
+        #user-posts-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        #user-posts-list li {
+            margin-bottom: 30px;
+            display: flex;
+            width: 18%;
             font-size: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        #user-details-container {
-            margin: 10px;
-            background-color: rgba(26, 25, 25, 0.62);
+            background-color: rgba(248, 242, 242, 0.8);
             border: 2px white solid;
+            box-sizing: border-box;
             text-align: center;
+            align-items: center;
+            justify-content: center;
         }
+
     </style>
 </head>
 <body>
@@ -99,7 +119,6 @@
     const container = document.getElementById('user-details-container');
     const id = document.createElement('p');
     id.textContent = `ID: ${data.id}`;
-
     const name = document.createElement('p');
     name.textContent = `Name: ${data.name}`;
     const username = document.createElement('p');
@@ -152,5 +171,3 @@
 </script>
 </body>
 </html>
-
-
