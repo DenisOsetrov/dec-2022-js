@@ -139,7 +139,7 @@
                 userPostsList.innerHTML = '';
                 posts.forEach(post => {
                     const li = document.createElement('li');
-                    li.classList.add('li-a-style')
+                    li.classList.add('li-a-style');
                     const postLink = document.createElement('a');
                     postLink.href = `post-details.html?data=${JSON.stringify(post)}`;
                     postLink.textContent = post.title;
