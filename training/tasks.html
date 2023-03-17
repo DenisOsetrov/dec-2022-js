@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--                lorem+Tab  -  text-->
+<!--                Lorem10 + Tab-->
+<script>
+
+
+// task 1.  Є 3 цілих числа. Знайти кількість додатніх чисел в цьому наборі.
+let a=12;
+let b=18;
+let c=-4;
+let count =0;
+if (a>0) {
+    count++;
+}if (b>0) {
+    count++
+}if (c>0) {
+    count++
+}
+console.log(count);
+
+// task 2. Зручні 3 фічі для роботи з об'єктими, масивами.
+//  1.  Як з масива утворити об'єкт!
+const cars = ['Audi', 'BMV', 'ZAZ', 'Jaguar'];
+const object = {...cars};
+console.log(object);  // {"0": "Audi", "1": "BMV", "2": "ZAZ", "3": "Jaguar"} виводить побудований об'єкт.
+//  2.  Як наповнити пустий масив!
+const newArray = new Array(5).     // 5 вказує на кіл-ть об'єктів в масиві! ставимо "." замість ";"
+fill('наповнювач');                //  метод fill встановлює для кожного елемента масиву значення 'наповнювач'.
+console.log(newArray)              // Результат ['наповнювач', 'наповнювач', 'наповнювач', 'наповнювач', 'наповнювач']
+//  3. як позбутися дублікатів в масиві?
+const namesArray = ['Anna','Petya','Jylia','Max','Anna'];
+const  uniqueNames = Array.from(new Set(namesArray));       // метод Array.from дубує новий масив, а Set - об'єкт JS (створює колекцію унікальних значень любих типів)
+console.log(uniqueNames);                                   //['Anna', 'Petya', 'Jylia', 'Max']
+
+// task 3.
+
+// task 4.
+
+// task 5.
+
+// task 6.
+
+// task 7.
+
+// task 8.
+
+// task 9.
+
+// task 10.
+
+// task 11.
+
+// task 12.
+
+// task 13.
+
+// task 14.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
