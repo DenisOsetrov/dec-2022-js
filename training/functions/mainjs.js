@@ -224,6 +224,14 @@ let numbers = [11,12,13,14,15,16,17,18,19,20];
                             //   виводимо. Після => можна задати умову!
 numbers.forEach((q) => console.log(q));
 
+let obj = {a: 1, b: 2, c: 3};
+for (let key in obj) {
+    console.log(key);               // shows 'a', 'b', 'c'
+}
+for (let key in obj) {
+    console.log(obj[key]);          // shows 1, 2, 3
+}
+
 
 
 
